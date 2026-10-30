@@ -1,5 +1,5 @@
-from sqlalchemy.orm import Session
-from src.schemas.schemas import Room
+from src.repository.database import SessionLocal, engine
+from src.schemas.schemas import Base, Room
 
 
 def seed_rooms(db):
