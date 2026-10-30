@@ -1,5 +1,5 @@
-from src.repository.database import SessionLocal, engine
-from src.schemas.schemas import Base, Room
+from sqlalchemy.orm import Session
+from src.schemas.schemas import Room
 
 
 def seed_rooms(db):
@@ -26,11 +26,3 @@ def seed_rooms(db):
     db.commit()
     print(f"Seeded {len(rooms)} rooms successfully.")
 
-
-if __name__ == "__main__":
-    Base.metadata.create_all(bind=engine)
-    db = SessionLocal()
-    try:
-        seed_rooms(db)
-    finally:
-        db.close()
